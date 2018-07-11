@@ -173,7 +173,7 @@ client.on('message', message => {
     const embed = new Discord.RichEmbed()
         .setColor("2fff00")
         .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-        .setFooter("by:ོ,$!S7Q | ĦÂмØ |♚#6947")
+        .setFooter("by:ོ,")
       message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
               const Embed11 = new Discord.RichEmbed()
         .setColor("2fff00")
@@ -183,7 +183,7 @@ client.on('message', message => {
 -ارسله للي تحب وحيآك انت وياه
 -ونورنا ياجميل :heart: 
 ------------------- **`)
-        .setFooter("By:ོ,$!S7Q | ĦÂмØ |♚#6947")
+        .setFooter("By:ོ,")
       message.author.sendEmbed(Embed11)
     }
 });  
