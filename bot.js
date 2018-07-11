@@ -173,7 +173,7 @@ client.on('message', message => {
     const embed = new Discord.RichEmbed()
         .setColor("2fff00")
         .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-        .setFooter("by:ོ,")
+        .setFooter("by:ོ,$!S7Q | ĦÂмØ |♚#6947")
       message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
               const Embed11 = new Discord.RichEmbed()
         .setColor("2fff00")
@@ -183,7 +183,7 @@ client.on('message', message => {
 -ارسله للي تحب وحيآك انت وياه
 -ونورنا ياجميل :heart: 
 ------------------- **`)
-        .setFooter("By:ོ,")
+        .setFooter("By:ོ,$!S7Q | ĦÂмØ |♚#6947")
       message.author.sendEmbed(Embed11)
     }
 });  
@@ -504,7 +504,8 @@ client.on("message", message => {
 **!avatar: لذهار صورتك او صورت الشخص اكتب** 
  **!bot لمعرفت البوت في كام سيرفر **
  
-
+ : سيرفر الدعم الفني**
+ 
  ***『قريبا سوف نضيف المزيد و المزيد من الاوامر 』***
  
  
@@ -553,7 +554,6 @@ message.channel.send(`${user} has ${inviteCount} invites.`);
 });
   }
 });
-   
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
