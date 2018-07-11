@@ -12,6 +12,82 @@ client.on('message', message => {
 });
 
 
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`:tada: :tada: ولكم نورت السيرفر:tada: :tada: 
+:crown:اسم العضو  ${member}:crown:  
+انت العضو رقم ${member.guild.memberCount} `) 
+}).catch(console.error)
+})
+
+client.on('guildMemberRemove', member => {
+    var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
+    .setThumbnail(member.user.avatarURL)
+    .setTitle(`خرج عضو`)
+    .setDescription(`**__طلع آو تم طرده من قبل الآدارة__** 👏`)
+    .addField(':bust_in_silhouette:   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('RED')
+    .setFooter(`H Bot`, '')
+
+var channel =member.guild.channels.find('name', 'welcome')
+if (!channel) return;
+channel.send({embed : embed});
+});
+
+
+client.on('message', (message)=>{
+        if (message.content.startsWith(`+embed`)) {
+                var embed = new Discord.RichEmbed()
+                .setAuthor(client.user.username,client.user.avatarURL)
+                .setTitle("Message By " + message.author.tag)
+                .setDescription(message.content.split(" ").join(" ").slice(7))
+                .setColor("RANDOM")
+                .setThumbnail(message.author.avatarURL)
+                message.channel.send(embed);
+        } else if (message.content.startsWith(`+say`)) {
+                message.channel.send(message.content.split(" ").join(" ").slice(5));
+        };
+})
+
+
+client.on('message', message => {
+     if (message.content === "!bot") {
+            if(!message.channel.guild) return message.reply('** This command only for servers **');
+     let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .addField("**عدد السيرفرات الي فيها البوت:**" , client.guilds.size)
+  .addField("**المستخدمين:**", client.users.size)
+  .addField("**قنوات:**", client.channels.size)
+  .setTimestamp()
+message.channel.sendEmbed(embed);
+    }
+});
+
+
+client.on('message', message => {
+     if (message.content === "!invite") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+client.on('message', message => {
+  if (true) {
+if (message.content === '!invite') {
+      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=464578042094944266&permissions=8&scope=bot').catch(e => console.log(e.stack));
+
+    }
+   } 
+  });
+
 client.on('message', message => {
     if (message.content.startsWith("!avatar")) {
         var mentionned = message.mentions.users.first();
@@ -428,9 +504,7 @@ client.on("message", message => {
 **!avatar: لذهار صورتك او صورت الشخص اكتب** 
  **!bot لمعرفت البوت في كام سيرفر **
  
- **!invite  : لدعوة البوت الى سيرفرك**
- **!support  : سيرفر الدعم الفني**
- 
+
  ***『قريبا سوف نضيف المزيد و المزيد من الاوامر 』***
  
  
@@ -458,6 +532,16 @@ client.on('message', message => {
 
 
 
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : i1Suhaib`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`!help `,"http://twitch.tv/S-F")
+client.user.setStatus("dnd")
+});
 
 client.on('message', message => {
    if(message.content.startsWith(prefix + "invites")) {
